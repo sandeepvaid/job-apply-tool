@@ -1,0 +1,97 @@
+{
+  "_comment": "Honesty anchor: everything here comes from your real resume. Review and correct — variants and the skip-filter both derive from this. 'strong' = can defend deeply in interviews, 'working' = used professionally, 'familiar' = touched it / listed but shallow, 'none' = deliberately listed so the matcher skips jobs requiring it.",
+  "name": "Sandeep Vaid",
+  "email": "vaid77167@gmail.com",
+  "phone": "+917006549295",
+  "github": "github.com/sandeepvaid",
+  "linkedin": "https://www.linkedin.com/in/sandeep-vaid623/",
+  "yearsExperience": 4,
+  "targetLevel": [
+    "mid",
+    "senior"
+  ],
+  "skills": {
+    "strong": [
+      "Node.js",
+      "Express.js",
+      "JavaScript",
+      "PostgreSQL",
+      "REST APIs",
+      "ETL / data pipelines",
+      "AWS (Lambda, S3, DynamoDB, CloudWatch, Cognito, EC2)",
+      "React.js",
+      "Redux",
+      "SQL optimization",
+      "CI/CD",
+      "Serverless architecture"
+    ],
+    "working": [
+      "React Native",
+      "Next.js",
+      "Angular",
+      "MongoDB",
+      "Redis",
+      "Snowflake",
+      "Redshift",
+      "Django",
+      "Python (scripting)",
+      "Observability / log management",
+      "RBAC / auth systems",
+      "OCR pipelines"
+    ],
+    "familiar": [
+      "Spring Boot",
+      "Dropwizard",
+      "Java",
+      "Docker",
+      "GraphQL",
+      "Kafka"
+    ],
+    "none": [
+      ".NET",
+      "C#",
+      "Golang",
+      "Ruby",
+      "PHP",
+      "Rust",
+      "C++",
+      "Scala",
+      "Salesforce",
+      "SAP",
+      "Kubernetes",
+      "Terraform",
+      "Spark",
+      "Airflow",
+      "iOS native (Swift)",
+      "Android native (Kotlin)",
+      "Embedded systems",
+      "ML model training / data science"
+    ]
+  },
+  "domains": [
+    "EdTech / GovTech",
+    "Travel",
+    "E-commerce / MarTech"
+  ],
+  "locationPreference": [
+    "Bangalore",
+    "Remote (India)",
+    "India"
+  ],
+  "screeningAnswers": {
+    "_comment": "Shown in the UI next to each job for copy-paste into application questions. Fill in the TODO values.",
+    "noticePeriod": "45",
+    "currentCTC": "2016000",
+    "expectedCTC": "3000000",
+    "currentLocation": "Noida",
+    "willingToRelocate": "yes",
+    "workAuthorization": "Indian citizen; no sponsorship needed for India roles",
+    "totalExperienceYears": "4.6",
+    "reasonForLeaving": "Looking to work on larger-scale engineering challenges beyond my current domain.",
+    "linkedinUrl": "https://www.linkedin.com/in/sandeep-vaid623/",
+    "githubUrl": "https://github.com/sandeepvaid",
+    "portfolioUrl": "",
+    "howDidYouHear": "Job board / company careers page"
+  },
+  "notes": "AI-forward: built OCR->recommendation pipeline, comfortable integrating AI/LLM APIs, but not an ML researcher. Java frameworks listed on resume but shallow — treat Java-primary roles as skip."
+}

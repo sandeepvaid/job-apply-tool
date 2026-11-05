@@ -1,0 +1,97 @@
+{
+  "id": "cloud",
+  "file": "sandeep-cloud",
+  "variantName": "Cloud-native / Generic SWE",
+  "name": "Sandeep Vaid",
+  "links": {
+    "email": "vaid77167@gmail.com",
+    "phone": "+91 7006549295",
+    "github": "https://github.com/sandeepvaid",
+    "linkedin": "https://www.linkedin.com/in/sandeep-vaid623/"
+  },
+  "summary": "Software engineer with 4+ years building cloud-native systems on AWS — serverless services, CI/CD pipelines, observability tooling, and fault-tolerant data platforms processing 100M+ records daily. Strong in Node.js, PostgreSQL, and production reliability engineering. Seeking senior engineering roles with AI-forward teams.",
+  "jobs": [
+    {
+      "role": "SOFTWARE ENGINEER II",
+      "company": "CONVEGENIUS",
+      "dates": "JUN 2024 - PRESENT",
+      "bullets": [
+        "Architected and owned end-to-end delivery of a fault-tolerant ETL pipeline ingesting <b>100M+</b> government education records daily across <b>6+ Indian states</b> — processing School, Student, and Employee datasets from <b>NIC UDISE+ APIs</b> using <b>parallel batch extraction</b> and PostgreSQL transactional staging with rollback, achieving <b>99.9%</b> data consistency across distributed sync operations.",
+        "Implemented production-grade recovery system using <b>exponential backoff</b> retry logic, <b>health-check endpoints</b>, AWS CloudWatch logging, and <b>Slack webhook</b> integration.",
+        "Built <b>centralized log management</b> and observability layer across <b>6+ ETL pipelines</b> — replaced manual per-pipeline error file sharing with a <b>unified real-time dashboard</b> used by Engineering, Product, and QA, eliminating 30–60 min per-incident debug handoff across 3 teams.",
+        "Led architecture-to-production delivery for government <b>MIS platform</b> serving 6+ Indian state education boards — owning technical design, <b>CI/CD</b> pipelines, and cross-functional alignment across Engineering, Product, QA, and state program managers to ensure contractual delivery milestones.",
+        "Designed and rearchitected a column-level <b>differential reconciliation engine</b> comparing <b>4–5 crore rows × 80–90 columns</b> across MIS and UDISE databases — identified <b>Materialized View</b> upsert limitations at <b>7 crore</b> diff scale, migrated to indexed PostgreSQL tables with a pre-aggregated summary layer, reducing processing from hours to minutes.",
+        "Migrated <b>RBAC</b> and Field Master configuration layer from <b>DynamoDB</b> to <b>PostgreSQL</b> — redesigned schema and wrote migration verification scripts."
+      ]
+    },
+    {
+      "role": "FULL-STACK DEVELOPER",
+      "company": "TRAVEL CORPORATION OF INDIA",
+      "dates": "MAY 2023 - JUNE 2024",
+      "bullets": [
+        "Integrated <b>AWS Cognito</b> for advanced <b>authentication</b> capabilities and developed <b>lambda functions</b> to incorporate bespoke authentication logic and user authentication.",
+        "Orchestrated the end-to-end implementation of Guide products across <b>backend</b>, <b>frontend</b>, and <b>mobile app</b> platforms, ensuring seamless <b>integration</b> and functionality.",
+        "Engineered advanced <b>search algorithms</b> for guides, reducing <b>search times</b> by 2.35 seconds through <b>intelligent filtering</b> based on date, type, language, location, and booking status.",
+        "Spearheaded the <b>development</b> to <b>deployment</b> process of a customizable React theme-editor using <b>hooks</b>, <b>Redux</b>, and <b>Saga</b>, optimizing <b>asynchronous</b> operations to show itinerary details.",
+        "Contributed to the enhancement of the guide mobile app built with <b>react-native</b>, refining user interface and experience design elements and publishing it on the <b>Play Store</b>."
+      ]
+    },
+    {
+      "role": "SOFTWARE DEVELOPMENT ENGINEER",
+      "company": "ARGOID [ACQUIRED BY AMAGI]",
+      "dates": "JULY 2022 - MAY 2023",
+      "bullets": [
+        "Architected a reusable service layer for configuration, dashboard, and task & dependency management — reducing manual operational workload by 80%.",
+        "Optimized event server performance with JSON schema validation, increasing throughput to <b>50,000 requests/second</b>.",
+        "Built an Administration Console with role-based access control (<b>RBAC</b>), enabling configuration management and real-time system monitoring.",
+        "Built an image-to-text extraction pipeline using OCR, generating AI-powered product recommendations from extracted attributes.",
+        "Developed a Shopify script for real-time behavioral data collection across e-commerce platforms using Google Tag Manager integrations.",
+        "Engineered a dynamic HTML and CSS code generator using Angular, reducing UI customization time for internal teams."
+      ]
+    }
+  ],
+  "skills": [
+    [
+      "Cloud & DevOps",
+      "AWS Lambda, AWS DynamoDB, AWS S3, AWS CloudWatch, AWS Cognito, Cron Scheduling, CI/CD, Serverless Architecture, Snowflake, Redshift, EC2, Elastic Beanstalk"
+    ],
+    [
+      "Backend",
+      "Node.js, Express.js, Django, Dropwizard, Spring Boot"
+    ],
+    [
+      "Databases",
+      "PostgreSQL, MongoDB, DynamoDB, Snowflake, Redshift"
+    ],
+    [
+      "Frontend",
+      "React.js, Next.js, Angular, Redux, Redux-Saga, React Native, HTML5, CSS3"
+    ]
+  ],
+  "projects": [
+    {
+      "title": "Chatter - A social-media server",
+      "points": [
+        "<b>Functionalities:</b> Proper <b>authentication</b>, adding <b>posts</b>, <b>comments</b>, <b>likes</b>, <b>adding friends</b>, and <b>chatting engines</b> are implemented.",
+        "Proper <b>Database models</b> are added to handle data efficiently. Use <b>a message queue</b> to handle concurrent requests.",
+        "<b>Tech Stack Used:</b> MongoDB, NodeJS, Expressjs, JavaScript."
+      ]
+    },
+    {
+      "title": "Connector - A React app",
+      "points": [
+        "Using the above <b>server API</b>, a <b>single-page web</b> app is built with <b>React</b>.",
+        "Proper <b>folder</b> structure and <b>code design implemented</b> which makes this web app <b>scaleable</b>.",
+        "Proper use of <b>custom hooks</b>, <b>providers</b>, <b>context API</b>, <b>state management</b> etc."
+      ]
+    }
+  ],
+  "coding": [
+    "<b>Leetcode Profile</b>",
+    "<b>GitHub</b> -> <a href=\"https://github.com/sandeepvaid\">github.com/sandeepvaid</a>"
+  ],
+  "education": {
+    "left": "Bikaner Technical University Kota - B.Tech (Computer Science)",
+    "right": "2018-2022"
+  }
+}

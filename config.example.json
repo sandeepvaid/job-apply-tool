@@ -1,0 +1,11 @@
+{
+  "authToken": "",
+  "jobHuntId": "",
+  "filters": {
+    "company": "",
+    "title": "",
+    "location": "",
+    "country": "",
+    "remote": false
+  }
+}

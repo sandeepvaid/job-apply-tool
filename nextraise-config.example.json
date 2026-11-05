@@ -1,0 +1,9 @@
+{
+  "sessionToken": "",
+  "pageSize": 50,
+  "query": {
+    "roleKeywords": ["Full Stack Engineer", "Node.js Engineer", "Software Engineer"],
+    "country": "India",
+    "level": "mid"
+  }
+}

@@ -1,0 +1,29 @@
+# ---- Secrets (live tokens — never commit) ----
+# Use the *.example.json templates instead; copy and fill in your own tokens.
+/config.json
+/nextraise-config.json
+
+# ---- Dependencies ----
+node_modules/
+
+# ---- Generated output ----
+output/
+
+# ---- Built resumes (rebuild from resumes/content/*.json via resumes/build.js) ----
+resumes/pdf/
+resumes/html/
+
+# ---- Runtime / application state ----
+app/state.json
+scraper/seen.json
+scraper/progress.json
+
+# ---- Local editor / tool settings ----
+.claude/settings.local.json
+
+# ---- OS junk ----
+.DS_Store
+**/.DS_Store
+
+# ---- Stray files ----
+cp

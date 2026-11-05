@@ -1,0 +1,92 @@
+{
+  "id": "agentic",
+  "file": "sandeep-agentic",
+  "variantName": "AI Agent / Senior Full-stack (Node + TS)",
+  "name": "Sandeep Vaid",
+  "links": {
+    "email": "vaid77167@gmail.com",
+    "phone": "+91 7006549295",
+    "github": "https://github.com/sandeepvaid",
+    "linkedin": "https://www.linkedin.com/in/sandeep-vaid623/"
+  },
+  "summary": "Senior full-stack engineer with 4+ years shipping products end-to-end in <b>Node.js/TypeScript</b> and <b>PostgreSQL</b>, from React/React-Native frontends to cloud-native backends and third-party integrations (<b>OAuth</b>, <b>webhooks</b>, <b>REST</b>). Have owned technical architecture, scoping, estimation, and delivery as the senior-most engineer on the team, and built production <b>AI agent</b> systems — <b>RAG</b>, <b>tool calling</b>, and agent orchestration with <b>MCP</b>-style tool interfaces. Comfortable owning tradeoffs and running technical conversations with product and non-technical stakeholders.",
+  "jobs": [
+    {
+      "role": "SOFTWARE ENGINEER II",
+      "company": "CONVEGENIUS",
+      "dates": "JUN 2024 - PRESENT",
+      "bullets": [
+        "Owned <b>technical architecture and end-to-end delivery</b> for a government <b>MIS platform</b> serving 6+ Indian state education boards — scoped work directly with Product and state program managers, set timelines and estimates that held, and drove design → <b>CI/CD</b> → production across Engineering, Product, and QA.",
+        "Architected a fault-tolerant ETL pipeline ingesting <b>100M+</b> records daily across <b>6+ states</b> — integrated third-party <b>NIC UDISE+ REST APIs</b> with <b>parallel batch extraction</b> and PostgreSQL transactional staging with rollback, achieving <b>99.9%</b> data consistency across distributed sync.",
+        "Built the <b>reliability layer</b> — <b>exponential backoff</b> retry logic, <b>health-check endpoints</b>, graceful failure handling, AWS CloudWatch monitoring, and <b>Slack webhook</b> alerting — so pipelines degrade gracefully and page on failure.",
+        "Designed a column-level <b>differential reconciliation engine</b> over <b>4–5 crore rows × 80–90 columns</b> — diagnosed <b>Materialized View</b> upsert limits at <b>7 crore</b> scale and migrated to indexed PostgreSQL tables with a pre-aggregated summary layer, cutting processing from hours to minutes.",
+        "Shipped a <b>centralized observability dashboard</b> across 6+ pipelines — replaced manual per-pipeline error-file sharing, eliminating 30–60 min per-incident debug handoff across 3 teams and translating incidents into plain-language status for non-technical stakeholders.",
+        "Migrated <b>RBAC</b> and Field Master configuration from <b>DynamoDB</b> to <b>PostgreSQL</b> — redesigned the schema and wrote migration verification scripts."
+      ]
+    },
+    {
+      "role": "FULL-STACK DEVELOPER",
+      "company": "TRAVEL CORPORATION OF INDIA",
+      "dates": "MAY 2023 - JUNE 2024",
+      "bullets": [
+        "Delivered Guide products <b>end-to-end</b> across <b>backend</b>, <b>frontend</b>, and <b>mobile</b> — owning design through deployment and integration.",
+        "Integrated <b>AWS Cognito</b> <b>OAuth</b> authentication and built custom <b>Lambda</b> auth logic for secure user flows.",
+        "Built a customizable React theme-editor using <b>hooks</b>, <b>Redux</b>, and <b>Saga</b>, optimizing <b>async</b> operations for itinerary rendering.",
+        "Engineered advanced <b>search</b> with <b>intelligent filtering</b> (date, type, language, location, booking status), cutting search time by 2.35s.",
+        "Enhanced the <b>react-native</b> guide app — refined UX and published to the <b>Play Store</b>."
+      ]
+    },
+    {
+      "role": "SOFTWARE DEVELOPMENT ENGINEER",
+      "company": "ARGOID [ACQUIRED BY AMAGI]",
+      "dates": "JULY 2022 - MAY 2023",
+      "bullets": [
+        "Architected a reusable service layer for configuration, dashboard, and task & dependency management — cutting manual operational workload by <b>80%</b>.",
+        "Built an Administration Console with <b>role-based access control (RBAC)</b> for configuration management and real-time system monitoring.",
+        "Built an image-to-text <b>OCR</b> pipeline generating <b>AI-powered product recommendations</b> from extracted attributes.",
+        "Optimized the event server with JSON-schema validation, lifting throughput to <b>50,000 requests/second</b>.",
+        "Developed a Shopify script for real-time behavioral data collection via Google Tag Manager integrations."
+      ]
+    }
+  ],
+  "skills": [
+    [
+      "Backend",
+      "Node.js, TypeScript, Express (NestJS-style layering), Django, Spring Boot; REST, OAuth, Webhooks"
+    ],
+    [
+      "AI / Agents",
+      "RAG (chunking, embeddings, pgvector semantic search), tool calling, LangGraph agent orchestration, prompt design, MCP-style tool interfaces, LLM APIs"
+    ],
+    [
+      "Frontend",
+      "React.js, Next.js, Angular, Redux, Redux-Saga, React Native, HTML5, CSS3"
+    ],
+    [
+      "Databases",
+      "PostgreSQL (+ pgvector), MongoDB, DynamoDB, Snowflake, Redshift"
+    ],
+    [
+      "Cloud & DevOps",
+      "AWS (Lambda, S3, CloudWatch, Cognito, EC2, Elastic Beanstalk), Vercel, CI/CD, Serverless, Cron Scheduling"
+    ]
+  ],
+  "projects": [
+    {
+      "title": "Learning Agentic AI — RAG, Tool-Calling & Agent Orchestration — github.com/sandeepvaid/learning-agentic-ai",
+      "points": [
+        "Built end-to-end <b>RAG</b> pipelines (<b>qna-rag</b>, <b>qna-rag-langgraph</b>): document <b>chunking</b>, <b>embedding</b> generation, vector <b>similarity retrieval</b>, and context-grounded answer synthesis — orchestrated as multi-step agent flows in <b>LangGraph</b> (state, conditional routing, tool nodes).",
+        "Implemented <b>pgvector</b> semantic search on <b>PostgreSQL</b> — embedding storage and nearest-neighbour similarity queries — applying production PostgreSQL experience to vector workloads.",
+        "Built <b>tool-calling</b> agents (<b>sql-agent</b>, <b>calculator-agent</b>) where the LLM plans and invokes typed tools — the same primitive underlying <b>MCP</b> — with iterative <b>prompt design</b> for reliable tool selection, query rewriting, and structured output."
+      ]
+    }
+  ],
+  "coding": [
+    "<b>Leetcode Profile</b>",
+    "<b>GitHub</b> -> <a href=\"https://github.com/sandeepvaid\">github.com/sandeepvaid</a>"
+  ],
+  "education": {
+    "left": "Bikaner Technical University Kota - B.Tech (Computer Science)",
+    "right": "2018-2022"
+  }
+}

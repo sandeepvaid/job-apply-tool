@@ -1,0 +1,25 @@
+{
+  "_comment": "Scraper settings. locationKeywords: a job is kept if its location matches any (case-insensitive) or the board marks it remote. Tune caps if runs are too slow.",
+  "locationKeywords": [
+    "india", "bengaluru", "bangalore", "hyderabad", "pune",
+    "gurugram", "gurgaon", "noida", "delhi", "mumbai", "chennai", "kolkata",
+    "ahmedabad", "jaipur", "anywhere", "apac"
+  ],
+  "_commentExclude": "remote jobs are kept UNLESS their location names a non-India region",
+  "excludeLocationKeywords": [
+    "united states", "usa", "u.s.", " us", "us-", "canada", "north america", "americas",
+    "europe", "emea", "uk", "united kingdom", "germany", "france", "poland", "spain",
+    "portugal", "netherlands", "latam", "brazil", "mexico", "australia", "new zealand",
+    "singapore", "japan", "china", "korea", "vietnam", "philippines", "indonesia",
+    "new york", "san francisco", "boston", "seattle", "austin", "denver", "chicago",
+    "london", "paris", "berlin", "dublin", "amsterdam", "toronto", "vancouver",
+    "tel aviv", "dubai", "nashville", "hungary", "romania", "czech", "italy",
+    "sweden", "norway", "denmark", "finland", "switzerland", "austria",
+    "belgium", "ireland", "greece", "turkey", "ukraine", "argentina",
+    "colombia", "chile", "peru", "egypt", "nigeria", "kenya", "south africa"
+  ],
+  "concurrency": 8,
+  "requestTimeoutMs": 15000,
+  "maxJobsPerBoard": 300,
+  "workdayMaxDetailFetches": 25
+}

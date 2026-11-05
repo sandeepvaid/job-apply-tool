@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Job Finder — Apply</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root { --bg:#f6f7f9; --card:#fff; --ink:#1a1d21; --mut:#6b7280; --line:#e5e7eb;
+          --blue:#2563eb; --green:#16a34a; --red:#dc2626; --amber:#d97706; }
+  * { box-sizing:border-box; margin:0; }
+  body { font:14px/1.45 -apple-system,'Segoe UI',sans-serif; background:var(--bg); color:var(--ink); }
+  header { background:#111827; color:#fff; padding:10px 20px; display:flex; align-items:center; gap:18px; position:sticky; top:0; z-index:5; }
+  header h1 { font-size:16px; font-weight:600; }
+  header .tab { color:#9ca3af; cursor:pointer; padding:4px 10px; border-radius:6px; }
+  header .tab.on { color:#fff; background:#374151; }
+  main { max-width:1280px; margin:0 auto; padding:16px 20px; }
+  .bar { display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-bottom:12px; }
+  select,input[type=text] { padding:6px 9px; border:1px solid var(--line); border-radius:7px; background:var(--card); font-size:13px; }
+  input[type=text] { min-width:220px; }
+  .chk { font-size:13px; color:var(--mut); display:flex; align-items:center; gap:4px; }
+  .stats { font-size:13px; color:var(--mut); margin-left:auto; }
+  .stats b { color:var(--ink); }
+  table { width:100%; border-collapse:collapse; background:var(--card); border:1px solid var(--line); border-radius:10px; overflow:hidden; }
+  th { text-align:left; font-size:11px; text-transform:uppercase; letter-spacing:.04em; color:var(--mut); padding:9px 10px; border-bottom:1px solid var(--line); background:#fafbfc; cursor:pointer; user-select:none; }
+  td { padding:9px 10px; border-bottom:1px solid var(--line); vertical-align:top; }
+  tr.row:hover { background:#f3f6fc; cursor:pointer; }
+  tr.done td { opacity:.45; }
+  .t { font-weight:600; }
+  .c { color:var(--mut); font-size:12.5px; }
+  .badge { display:inline-block; font-size:11px; font-weight:600; padding:2px 8px; border-radius:20px; white-space:nowrap; }
+  .b-ats { background:#eef2ff; color:#4338ca; }
+  .b-backend { background:#dbeafe; color:#1d4ed8; }
+  .b-data { background:#dcfce7; color:#15803d; }
+  .b-fullstack { background:#fef3c7; color:#b45309; }
+  .b-cloud { background:#e0e7ff; color:#4f46e5; }
+  .b-skip { background:#fee2e2; color:#b91c1c; }
+  .b-warn { background:#fef9c3; color:#a16207; }
+  .b-applied { background:#dcfce7; color:#15803d; }
+  .b-opened { background:#dbeafe; color:#1d4ed8; }
+  .b-skipped { background:#f3f4f6; color:#6b7280; }
+  button { border:0; border-radius:7px; padding:6px 12px; font-size:12.5px; font-weight:600; cursor:pointer; }
+  .b-apply { background:var(--blue); color:#fff; }
+  .b-mark { background:var(--green); color:#fff; }
+  .b-sk { background:#e5e7eb; color:#374151; }
+  .detail { background:#fafbfc; }
+  .detail .inner { display:grid; grid-template-columns: 1fr 320px; gap:16px; padding:6px 4px; }
+  .desc { font-size:12.5px; color:#374151; white-space:pre-wrap; max-height:260px; overflow:auto; }
+  .side h4 { font-size:11px; text-transform:uppercase; color:var(--mut); margin:8px 0 4px; }
+  .kws { font-size:11px; color:var(--mut); }
+  .ans { font-size:12.5px; background:#fff; border:1px solid var(--line); border-radius:8px; padding:8px; }
+  .ans div { display:flex; justify-content:space-between; gap:8px; padding:2px 0; border-bottom:1px dashed #f0f0f0; }
+  .ans span:first-child { color:var(--mut); }
+  .ans span:last-child { font-weight:600; text-align:right; cursor:copy; }
+  textarea { width:100%; height:70vh; font:12.5px/1.5 ui-monospace,Menlo,monospace; border:1px solid var(--line); border-radius:10px; padding:12px; background:var(--card); }
+  .savebar { display:flex; gap:10px; align-items:center; margin:10px 0; }
+  .msg { font-size:13px; }
+  .msg.ok { color:var(--green); } .msg.err { color:var(--red); }
+  .hint { font-size:12.5px; color:var(--mut); margin-bottom:8px; }
+  .rgrid { display:grid; grid-template-columns:repeat(auto-fill,minmax(460px,1fr)); gap:16px; }
+  .rcard { background:var(--card); border:1px solid var(--line); border-radius:10px; overflow:hidden; }
+  .rcard .rhead { display:flex; align-items:center; gap:8px; padding:9px 12px; border-bottom:1px solid var(--line); }
+  .rcard .rhead .name { font-weight:600; flex:1; }
+  .rcard iframe { width:100%; height:620px; border:0; display:block; background:#fff; }
+  a { color:var(--blue); }
+</style>
+</head>
+<body>
+<header>
+  <h1>Job Finder — Apply</h1>
+  <span class="tab on" data-tab="jobs">Jobs</span>
+  <span class="tab" data-tab="resumes">Resumes</span>
+  <span class="tab" data-tab="profile">Profile & Answers</span>
+</header>
+<main>
+  <section id="jobs">
+    <div class="bar">
+      <select id="csv"></select>
+      <input type="text" id="q" placeholder="Search title / company / location">
+      <select id="fCluster">
+        <option value="">All variants</option>
+        <option value="backend">Backend</option><option value="data">Data</option>
+        <option value="fullstack">Full-stack</option><option value="cloud">Cloud/SWE</option>
+      </select>
+      <select id="fAts"><option value="">All ATS</option></select>
+      <label class="chk"><input type="checkbox" id="hideSkip" checked> hide auto-skipped</label>
+      <label class="chk"><input type="checkbox" id="hideDone" checked> hide applied/skipped</label>
+      <span class="stats" id="stats"></span>
+    </div>
+    <table>
+      <thead><tr>
+        <th data-s="match.score">Match</th><th data-s="title">Job</th><th data-s="ats">ATS</th>
+        <th data-s="relevancyScore">6figr</th><th data-s="jobPostedDate">Posted</th><th>Status / Actions</th>
+      </tr></thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </section>
+
+  <section id="resumes" style="display:none">
+    <div class="hint">
+      One PDF per job cluster — the matcher picks which one each job gets. Content lives in
+      <code>resumes/variants.js</code>; after editing, run <code>node resumes/build.js</code> and refresh.
+    </div>
+    <div class="rgrid" id="rgrid"></div>
+  </section>
+
+  <section id="profile" style="display:none">
+    <div class="hint">
+      This is <code>profile/skills.json</code>. <b>screeningAnswers</b> show up in each job's expanded row for
+      copy-paste into application questions (notice period, CTC, work auth…). <b>skills.none</b> drives the
+      auto-skip filter (edit <code>matcher/rules.js</code> for the rule details). Resume content lives in
+      <code>resumes/variants.js</code> — after editing it run <code>node resumes/build.js</code>.
+    </div>
+    <div class="savebar">
+      <button class="b-mark" id="saveProfile">Save profile</button>
+      <span class="msg" id="profileMsg"></span>
+    </div>
+    <textarea id="profileTa" spellcheck="false"></textarea>
+  </section>
+</main>
+
+<script>
+const $ = s => document.querySelector(s);
+const esc = s => (s||'').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+let jobs = [], profile = {}, sortKey = 'match.score', sortDir = -1, openRow = null;
+
+// ---- tabs ----
+function showTab(name) {
+  const t = document.querySelector(`.tab[data-tab="${name}"]`);
+  if (!t) return;
+  document.querySelectorAll('.tab').forEach(x => x.classList.remove('on'));
+  t.classList.add('on');
+  ['jobs', 'resumes', 'profile'].forEach(id =>
+    $('#' + id).style.display = name === id ? '' : 'none');
+  if (name === 'resumes' && !$('#rgrid').children.length) loadResumes();
+  history.replaceState(null, '', '#' + name);
+}
+document.querySelectorAll('.tab').forEach(t => t.onclick = () => showTab(t.dataset.tab));
+if (location.hash) showTab(location.hash.slice(1));
+
+// ---- resumes ----
+const CLUSTER_LABELS = {
+  'sandeep-backend.pdf': ['backend', 'Backend / APIs / Distributed Systems'],
+  'sandeep-data.pdf': ['data', 'Data Engineering / ETL'],
+  'sandeep-fullstack.pdf': ['fullstack', 'Full-stack (React + Node)'],
+  'sandeep-cloud.pdf': ['cloud', 'Cloud-native / Generic SWE — fallback'],
+};
+async function loadResumes() {
+  const files = await (await fetch('/api/resumes')).json();
+  $('#rgrid').innerHTML = files.map(f => {
+    const [cid, label] = CLUSTER_LABELS[f] || ['cloud', f];
+    return `<div class="rcard">
+      <div class="rhead">
+        <span class="badge b-${cid}">${cid}</span>
+        <span class="name">${esc(label)}</span>
+        <span class="c">${esc(f)}</span>
+        <a href="/resumes/${encodeURIComponent(f)}" target="_blank">open ↗</a>
+      </div>
+      <iframe src="/resumes/${encodeURIComponent(f)}#toolbar=0&view=FitH" loading="lazy" title="${esc(f)}"></iframe>
+    </div>`;
+  }).join('') || '<i>No PDFs found — run <code>node resumes/build.js</code></i>';
+}
+
+// ---- data ----
+async function loadCsvs() {
+  const files = await (await fetch('/api/csvs')).json();
+  $('#csv').innerHTML = files.map(f => `<option>${esc(f)}</option>`).join('');
+  if (files.length) loadJobs();
+}
+async function loadJobs() {
+  jobs = await (await fetch('/api/jobs?csv=' + encodeURIComponent($('#csv').value))).json();
+  const atss = [...new Set(jobs.map(j => j.ats))].sort();
+  $('#fAts').innerHTML = '<option value="">All ATS</option>' + atss.map(a => `<option>${esc(a)}</option>`).join('');
+  render();
+}
+async function loadProfile() {
+  profile = await (await fetch('/api/profile')).json();
+  $('#profileTa').value = JSON.stringify(profile, null, 2);
+}
+$('#saveProfile').onclick = async () => {
+  const msg = $('#profileMsg');
+  let body;
+  try { body = JSON.parse($('#profileTa').value); }
+  catch (e) { msg.textContent = 'Invalid JSON: ' + e.message; msg.className = 'msg err'; return; }
+  const r = await fetch('/api/profile', { method:'POST', body: JSON.stringify(body) });
+  const out = await r.json();
+  msg.textContent = out.ok ? 'Saved ✓' : ('Error: ' + out.error);
+  msg.className = out.ok ? 'msg ok' : 'msg err';
+  if (out.ok) profile = body;
+};
+
+// ---- render ----
+const get = (o, k) => k.split('.').reduce((a, x) => a && a[x], o) ?? 0;
+function visible() {
+  const q = $('#q').value.toLowerCase(), fc = $('#fCluster').value, fa = $('#fAts').value;
+  return jobs.filter(j => {
+    if ($('#hideSkip').checked && j.match.skip && j.status !== 'applied') return false;
+    if ($('#hideDone').checked && (j.status === 'applied' || j.status === 'skipped')) return false;
+    if (fc && (!j.match.cluster || j.match.cluster.id !== fc)) return false;
+    if (fa && j.ats !== fa) return false;
+    if (q && !(j.title + ' ' + j.company + ' ' + j.location).toLowerCase().includes(q)) return false;
+    return true;
+  }).sort((a, b) => (get(b, sortKey) > get(a, sortKey) ? 1 : -1) * -sortDir);
+}
+function render() {
+  const rows = visible();
+  const applied = jobs.filter(j => j.status === 'applied').length;
+  const skippable = jobs.filter(j => j.match.skip).length;
+  $('#stats').innerHTML = `<b>${rows.length}</b> shown · <b>${jobs.length - skippable}</b> apply-able · <b>${skippable}</b> auto-skipped · <b>${applied}</b> applied`;
+  $('#tbody').innerHTML = rows.map(j => {
+    const m = j.match;
+    const matchCell = m.skip
+      ? `<span class="badge b-skip" title="auto-skip">${esc(m.skip.reason)}</span>`
+      : `<span class="badge b-${m.cluster.id}">${m.cluster.id} · ${m.score}</span>` +
+        (m.warn ? ` <span class="badge b-warn">${esc(m.warn)}</span>` : '');
+    const status = j.status ? `<span class="badge b-${j.status}">${j.status}</span> ` : '';
+    return `<tr class="row ${j.status==='applied'||j.status==='skipped'?'done':''}" data-id="${j.id}">
+      <td>${matchCell}</td>
+      <td><div class="t">${esc(j.title)}</div><div class="c">${esc(j.company)} — ${esc(j.location)}</div></td>
+      <td><span class="badge b-ats">${esc(j.ats)}</span></td>
+      <td>${Math.round(j.relevancyScore)}</td>
+      <td class="c">${(j.jobPostedDate||'').slice(0,10)}</td>
+      <td>${status}
+        <button class="b-apply" data-a="apply">Apply</button>
+        <button class="b-mark" data-a="applied">✓</button>
+        <button class="b-sk" data-a="skipped">✗</button>
+      </td></tr>`;
+  }).join('');
+}
+
+// ---- interactions ----
+$('#tbody').onclick = async (e) => {
+  const tr = e.target.closest('tr.row');
+  if (!tr) return;
+  const j = jobs.find(x => x.id === tr.dataset.id);
+  const act = e.target.dataset.a;
+  if (act === 'apply') {
+    e.stopPropagation();
+    await fetch('/api/apply', { method:'POST', body: JSON.stringify({
+      id: j.id, url: j.url, pdf: j.match.cluster ? j.match.cluster.pdf : 'sandeep-cloud.pdf',
+      title: j.title, company: j.company }) });
+    j.status = 'opened'; render();
+    return;
+  }
+  if (act === 'applied' || act === 'skipped') {
+    e.stopPropagation();
+    const next = j.status === act ? null : act;
+    await fetch('/api/status', { method:'POST', body: JSON.stringify({ id: j.id, status: next, title: j.title, company: j.company }) });
+    j.status = next; render();
+    return;
+  }
+  // expand/collapse detail
+  if (openRow) openRow.remove(), openRow = null;
+  if (tr.dataset.open) { delete tr.dataset.open; return; }
+  document.querySelectorAll('tr.row').forEach(r => delete r.dataset.open);
+  tr.dataset.open = '1';
+  const ans = (profile.screeningAnswers || {});
+  const ansHtml = Object.entries(ans).filter(([k]) => k !== '_comment').map(([k, v]) =>
+    `<div><span>${esc(k)}</span><span title="click to copy" onclick="navigator.clipboard.writeText(this.textContent)">${esc(String(v))}</span></div>`).join('');
+  const d = document.createElement('tr');
+  d.className = 'detail';
+  d.innerHTML = `<td colspan="6"><div class="inner">
+    <div>
+      <h4 style="font-size:11px;text-transform:uppercase;color:#6b7280;margin-bottom:4px">Description</h4>
+      <div class="desc">${esc(j.descPreview)}…</div>
+      <div class="kws" style="margin-top:6px">matched: ${esc((j.match.matched||[]).slice(0,12).join(', ')) || '—'}</div>
+      <div style="margin-top:6px"><a href="${esc(j.url)}" target="_blank">open posting ↗</a>
+        ${j.match.cluster ? ` · resume: <a href="/resumes/${j.match.cluster.pdf}" target="_blank">${j.match.cluster.pdf}</a>` : ''}</div>
+    </div>
+    <div class="side">
+      <h4>Screening answers (click value to copy)</h4>
+      <div class="ans">${ansHtml || '<i>fill screeningAnswers in Profile tab</i>'}</div>
+    </div>
+  </div></td>`;
+  tr.after(d);
+  openRow = d;
+};
+document.querySelectorAll('th[data-s]').forEach(th => th.onclick = () => {
+  sortKey === th.dataset.s ? sortDir *= -1 : (sortKey = th.dataset.s, sortDir = -1);
+  render();
+});
+['#q','#fCluster','#fAts','#hideSkip','#hideDone'].forEach(s => $(s).oninput = render);
+$('#csv').onchange = loadJobs;
+
+loadCsvs(); loadProfile();
+</script>
+</body>
+</html>
